@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow border-0">
+            <div class="card-header bg-warning text-dark py-3 text-center">
+                <h2 class="h4 mb-0 fw-bold"><i class="bi bi-person-plus-fill me-2"></i>Create Account</h2>
+            </div>
+            <div class="card-body p-4">
+
+                {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
+
+                <div class="mb-3">
+                    {{ form_label(registrationForm.name) }}
+                    {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+                    {% if form_errors(registrationForm.name) %}
+                        <div class="text-danger small mt-1">{{ form_errors(registrationForm.name) }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(registrationForm.email) }}
+                    {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                    {% if form_errors(registrationForm.email) %}
+                        <div class="text-danger small mt-1">{{ form_errors(registrationForm.email) }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(registrationForm.plainPassword) }}
+                    {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                    {% if form_errors(registrationForm.plainPassword) %}
+                        <div class="text-danger small mt-1">{{ form_errors(registrationForm.plainPassword) }}</div>
+                    {% endif %}
+                    <small class="text-muted">Minimum 6 characters.</small>
+                </div>
+
+                <div class="mb-4 form-check">
+                    {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                    {{ form_label(registrationForm.agreeTerms, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                    {% if form_errors(registrationForm.agreeTerms) %}
+                        <div class="text-danger small mt-1">{{ form_errors(registrationForm.agreeTerms) }}</div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-warning w-100 mb-3">
+                    <i class="bi bi-person-check-fill me-1"></i>Create Account
+                </button>
+
+                {{ form_end(registrationForm) }}
+
+                <hr>
+                <p class="text-center mb-0">
+                    Already have an account?
+                    <a href="{{ path('app_login') }}" class="fw-bold">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

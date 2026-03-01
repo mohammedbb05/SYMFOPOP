@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow border-0">
+            <div class="card-header bg-warning text-dark py-3">
+                <h2 class="h4 mb-0 fw-bold"><i class="bi bi-plus-circle-fill me-2"></i>Publish New Product</h2>
+            </div>
+            <div class="card-body p-4">
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    <div class="mb-3">
+                        {{ form_label(form.title) }}
+                        {{ form_widget(form.title) }}
+                        {{ form_errors(form.title) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(form.price) }}
+                        <div class="input-group">
+                            {{ form_widget(form.price) }}
+                            <span class="input-group-text">€</span>
+                        </div>
+                        {{ form_errors(form.price) }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form_label(form.image) }}
+                        {{ form_widget(form.image) }}
+                        {{ form_errors(form.image) }}
+                        <small class="text-muted">Leave blank to auto-assign a random image.</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning flex-fill">
+                            <i class="bi bi-check-circle-fill me-1"></i>Create Product
+                        </button>
+                        <a href="{{ path('app_product_index') }}" class="btn btn-outline-secondary flex-fill">
+                            <i class="bi bi-x-circle me-1"></i>Cancel
+                        </a>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
