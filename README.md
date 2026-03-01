@@ -144,3 +144,5 @@ symfopop/
 ## 👨‍💻 Autor
 
 Projecte desenvolupat per **Mohammed** com a part d'un projecte d'aprenentatge de Symfony.
+=======
+# SYMFOPOP
